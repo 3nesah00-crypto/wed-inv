@@ -498,7 +498,8 @@ a {
     font-family: var(--amiri);
     font-size: clamp(1.05rem, 3.7vw, 1.3rem);
     line-height: 2.2;
-    color: var(--ink)
+    color: var(--ink);
+    white-space: pre-line;
 }
 
 /* ---- العائلتان ---- */
