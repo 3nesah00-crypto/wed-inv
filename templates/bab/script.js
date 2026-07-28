@@ -54,13 +54,6 @@ function __bab_deepMerge(base, extra) {
 }
 
 function __bab_loadConfig() {
-    try {
-        const raw = localStorage.getItem("bab_wedding_config");
-        if (raw) {
-            const saved = JSON.parse(raw);
-            return __bab_deepMerge(BAB_DEFAULT_CONFIG, saved);
-        }
-    } catch (_) {}
     return (typeof window !== "undefined" && window.__INVITE__ && window.__INVITE__.config)
         ? __bab_deepMerge(BAB_DEFAULT_CONFIG, window.__INVITE__.config)
         : JSON.parse(JSON.stringify(BAB_DEFAULT_CONFIG));
