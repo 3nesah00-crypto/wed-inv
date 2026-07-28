@@ -85,7 +85,7 @@ function fillContent() {
     setText("heroInvite", c.heroSub);
     setText("heroDate", c.dateText);
     setText("verseText", c.verse);
-    setText("invitationText", c.invitationText);
+    buildInvitation(c);
     setText("groomParents", c.groomParents);
     setText("brideParents", c.brideParents);
     setText("venueName", c.venueName);
@@ -100,6 +100,42 @@ function fillContent() {
     buildNotes(c.notes);
     buildContact(c);
     if (c.groom && c.bride) document.title = `دعوة زفاف ${c.groom} & ${c.bride}`;
+}
+
+function esc(s) {
+    return String(s == null ? "" : s)
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+function buildInvitation(c) {
+    const el = document.getElementById("invitationText");
+    if (!el) return;
+    const groomDad = "السيّد طارق السعدي";
+    const brideDad = "السيّد أحمد العجارمة";
+    el.innerHTML = `
+        <span class="inv__p">بقلوب مفعمة بالفرح و السرور نفتح لكم باب فرحتنا</span>
+        <span class="inv__p inv__p--tight">يتشرف</span>
+        <div class="inv__parents">
+            <div class="inv__parent">
+                <span class="inv__label">والد العريس</span>
+                <span class="inv__parent-name">${esc(groomDad)}</span>
+            </div>
+            <div class="inv__parent">
+                <span class="inv__label">والد العروس</span>
+                <span class="inv__parent-name">${esc(brideDad)}</span>
+            </div>
+        </div>
+        <span class="inv__p">بدعوتكم لمشاركتنا اجمل لحظات حياتنا في حفل زفاف</span>
+        <div class="inv__names">
+            <span class="inv__name">${esc(c.groom || "")}</span>
+            <span class="inv__heart">💜</span>
+            <span class="inv__name">${esc(c.bride || "")}</span>
+        </div>
+        <span class="inv__p">حضوركم شرف و بهجة تكتمل بها فرحتنا</span>
+        <span class="inv__p inv__p--tight">وذلك بمشيئة الله تعالى</span>
+        <span class="inv__p">${esc(c.dateText || "")}</span>
+    `;
 }
 
 /* زهرة الجدول الزمني — SVG ثابتة (لا بيانات مستخدم) */

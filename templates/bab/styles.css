@@ -499,7 +499,67 @@ a {
     font-size: clamp(1.05rem, 3.7vw, 1.3rem);
     line-height: 2.2;
     color: var(--ink);
-    white-space: pre-line;
+    white-space: normal;
+    margin: 0;
+}
+
+.inv__p {
+    display: block;
+    margin: 0 0 0.6rem 0;
+}
+
+.inv__p--tight {
+    margin: 0 0 0.2rem 0;
+}
+
+.inv__parents {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 0.5rem 0 0.2rem 0;
+    text-align: center;
+}
+
+.inv__parent {
+    flex: 1;
+}
+
+.inv__label {
+    display: block;
+    font-family: var(--kufi);
+    font-size: clamp(0.85rem, 2.7vw, 1rem);
+    color: var(--lilac-deep);
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.inv__parent-name {
+    display: block;
+    font-family: var(--amiri);
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.inv__names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin: 1rem 0;
+}
+
+.inv__name {
+    font-family: var(--kufi);
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    font-weight: 700;
+    color: var(--lilac-deep);
+}
+
+.inv__heart {
+    color: #fff;
+    text-shadow: 0 0 2px var(--lilac), 0 0 6px var(--lilac-2), 0 0 12px rgba(169,127,192,0.6);
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
 }
 
 /* ---- العائلتان ---- */
