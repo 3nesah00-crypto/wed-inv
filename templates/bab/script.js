@@ -3,39 +3,31 @@
    دخولية: دُقّوا على الباب ثلاث دقّات → الباب يُفتح على النور → الواجهة
    ============================================================ */
 const BAB_DEFAULT_CONFIG = {
-    groom: "أنس",
-    bride: "غالية",
-    date: "2026-08-07T19:00:00",
-    dateText: "يوم الجمعة، ٧ أغسطس ٢٠٢٦",
-    timeText: "الساعة السابعة مساءً",
+    groom: "عمر",
+    bride: "رند",
+    date: "2026-08-18T18:00:00",
+    dateText: "يوم الثلاثاء، ١٨ أغسطس ٢٠٢٦",
+    timeText: "من الساعة السادسة مساءً و لغاية الساعة التاسعة مساءً",
     heroSub: "فتحنا باب فرحتنا… وطارت البشائر تدعوكم",
     verse: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً",
-    invitationText: "بقلوب مفعمة بالفرح و السرور نفتح لكم باب فرحتنا\n\nيتشرف\n\nوالد العريس        والد العروس\n\nبدعوتكم لمشاركتنا اجمل لحظات حياتنا في حفل زفاف\n\nأنس  💜  غالية\n\nحضوركم شرف و بهجة تكتمل بها فرحتنا\n\nو ذلك بمشيئة الله\n\nيوم الجمعة الموافق ٧ أغسطس ٢٠٢٦",
-    groomParents: "ابن السيّد طارق السعدي",
-    brideParents: "ابنة السيّد أحمد العجارمة",
-    venueName: "Grand Village Hall",
-    venueAddr: "عمان — شارع المطار",
-    mapUrl: "https://maps.app.goo.gl/XUZp3hSzj9Ffxew28",
-    program: [{
-            time: "٥:٣٠ مساءً",
-            title: "زفة العريس"
-        },
-        {
-            time: "٦:٣٠ مساءً",
-            title: "زفة العروس"
-        },
-        {
-            time: "٨:٠٠ مساءً",
-            title: "بداية العرس"
-        },
-    ],
-    notes: [],
+    invitationText: "بقلوب مفعمة بالفرح و السرور نفتح لكم باب فرحتنا\n\nيتشرف\n\nوالد العريس        والد العروس\n\nبدعوتكم لمشاركتنا اجمل لحظات حياتنا في حفل زفاف\n\nعمر  💜  رند\n\nحضوركم شرف و بهجة تكتمل بها فرحتنا\n\nو ذلك بمشيئة الله\n\nيوم الثلاثاء الموافق ١٨ أغسطس ٢٠٢٦",
+    groomParents: "ابن الحاج عماد احمد خشان",
+    brideParents: "ابنة الحاج طالب جميل دغلس",
+    venueName: "قاعة النعمان الملوكية",
+    venueAddr: "شارع وصفي التل",
+    mapUrl: "https://maps.app.goo.gl/Qozumuxjwkd3N4ia7",
+    program: [],
+    notes: ["يمنع التصوير بقاعة النساء"],
     closingNote: "حضوركم يفتح أبواب سعادتنا",
-    hashtag: "#أنس_وغالية",
+    hashtag: "#عمر_ورند",
     contactLabel: "",
     contactName: "",
     contactPhone: "",
-    closingFamilies: "عائلة السعدي  &  عائلة العجارمة",
+    closingFamilies: "عائلة خشان  &  عائلة دغلس",
+    showFamilies: true,
+    groomParentsLabel: "والد العريس",
+    brideParentsLabel: "والد العروس",
+    brideFirst: false,
     images: {},
 };
 
@@ -78,7 +70,7 @@ function pad(n) {
 
 function fillContent() {
     const c = WEDDING_CONFIG;
-    const names = c.groom && c.bride ? `${c.groom} & ${c.bride}` : "";
+    const names = c.groom && c.bride ? `${c.groom} و ${c.bride}` : "";
     setText("coverNames", names);
     setText("heroGroom", c.groom);
     setText("heroBride", c.bride);
@@ -111,8 +103,8 @@ function esc(s) {
 function buildInvitation(c) {
     const el = document.getElementById("invitationText");
     if (!el) return;
-    const groomDad = "السيّد طارق السعدي";
-    const brideDad = "السيّد أحمد العجارمة";
+    const groomDad = "الحاج عماد احمد خشان";
+    const brideDad = "الحاج طالب جميل دغلس";
     el.innerHTML = `
         <span class="inv__p">بقلوب مفعمة بالفرح و السرور نفتح لكم باب فرحتنا</span>
         <span class="inv__p inv__p--tight">يتشرف</span>
